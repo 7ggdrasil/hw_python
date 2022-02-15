@@ -26,6 +26,12 @@ class Student:
     
     def __str__(self):                                                         
         return f'{self.name}\n{self.surname}\nСредняя оценка за домашние задания: {self.av_grade()}\nКурсы в процессе изучения: {self.courses_in_progress}\nЗавершенные курсы: {self.finished_courses}'
+    
+    def __lt__(self, other):
+        if not isinstance(other, Student):
+            print('Не студент')
+            return
+        return self.av_grade() < other.av_grade()
         
 class Mentor:
     def __init__(self, name, surname):
@@ -63,6 +69,12 @@ class Lecturer(Mentor):
 
     def __str__(self):
         return f'{self.name}\n{self.surname}\nСредняя оценка за лекции: {self.av_grade()}'
+
+    def __lt__(self, other):
+        if not isinstance(other, Lecturer):
+            print('Не лектор')
+            return
+        return self.av_grade() < other.av_grade()
 
 def rate_people(someone, somebody):
     a = someone.av_grade()
@@ -150,3 +162,6 @@ average_grades_for_students = avg_grades(students_list, 'Python')
 print(f'Средняя оценка студентов: {average_grades_for_students}')
 average_grades_for_lecturers = avg_grades(lecturers_list, 'Python')
 print(f'Средняя оценка лекторов: {average_grades_for_lecturers}')
+
+print(some_student < worst_student)
+print(some_lecturer < else_lecturer)
