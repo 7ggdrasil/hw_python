@@ -1,6 +1,6 @@
 create table if not exists Mus (
 	id serial primary key,
-	mus_name varchar(200) not null
+	mus_name varchar(200) not null unique
 );
 
 create table if not exists Genre (
