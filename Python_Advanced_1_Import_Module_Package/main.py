@@ -1,5 +1,5 @@
-import salary as sal
-import people as ppl
+import application.salary as sal
+import application.people as ppl
 
 if __name__ == '__main__':
     sal.calculate_salary()
