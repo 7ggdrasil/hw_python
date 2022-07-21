@@ -1,7 +1,8 @@
-from main import get_user_name, get_dir, get_users, add_new_user, delete_acc, move_acc_to_new_dir
-from main import documents, directories
-from unittest import mock
 from unittest import TestCase
+from unittest import mock
+
+from main import documents, directories
+from main import get_user_name, get_dir, get_users, add_new_user, delete_acc, move_acc_to_new_dir
 
 
 class TestAddNewUser(TestCase):
@@ -68,4 +69,4 @@ class TestGetUsers(TestCase):
             'passport "2207 876234" "Василий Гупкин"',
             'invoice "11-2" "Геннадий Покемонов"',
             'insurance "10006" "Аристарх Павлов"']
-        self.assertEqual(get_users(documents), expected_result)
+        self.assertListEqual(get_users(documents), expected_result)
